@@ -71,7 +71,7 @@ function get_most_played_poker_hand()
 	local result_hand = 'High Card'
 	local played_hand_count = 0
 	for _, v in ipairs(G.handlist) do
-		if G.GAME.hands[v].played > played_hand_count then
+		if G.GAME.hands[v].visible and G.GAME.hands[v].played > played_hand_count then
 			result_hand = v
 			played_hand_count = G.GAME.hands[v].played
 		end
@@ -84,7 +84,7 @@ function get_least_played_poker_hand()
 	local result_hand = 'High Card'
 	local played_hand_count = math.huge
 	for _, v in ipairs(G.handlist) do
-		if G.GAME.hands[v].played <= played_hand_count then
+		if G.GAME.hands[v].visible and G.GAME.hands[v].played <= played_hand_count then
 			result_hand = v
 			played_hand_count = G.GAME.hands[v].played
 		end
@@ -97,7 +97,7 @@ function most_played_poker_hand_level()
 	local result_level = 1
 	local played_hand_count = 0
 	for _, v in ipairs(G.handlist) do
-		if G.GAME.hands[v].played > played_hand_count then
+		if G.GAME.hands[v].visible and G.GAME.hands[v].played > played_hand_count then
 			result_level = G.GAME.hands[v].level
 			played_hand_count = G.GAME.hands[v].played
 		end
@@ -110,7 +110,7 @@ function least_played_poker_hand_level()
 	local result_level = 1
 	local played_hand_count = math.huge
 	for _, v in ipairs(G.handlist) do
-		if G.GAME.hands[v].played <= played_hand_count then
+		if G.GAME.hands[v].visible and G.GAME.hands[v].played <= played_hand_count then
 			result_level = G.GAME.hands[v].level
 			played_hand_count = G.GAME.hands[v].played
 		end
